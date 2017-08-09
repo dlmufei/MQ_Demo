@@ -36,35 +36,40 @@ public class KafkaProducerThread extends Thread {
     public void run() {
         try {
             int messageNo = 1;
-            producer.initTransactions();
+//            producer.initTransactions();
             while (true) {
                 String keyStr = new String("key_" + messageNo);
                 String valueStr = new String("value_" + messageNo);
                 System.out.println("Send:" + messageNo);
                 try {
-                    producer.beginTransaction();
-                    for (int i = 0; i < 100; i++) {
+//                    producer.beginTransaction();
+                    System.out.println("beginTransaction");
+                    for (int i = 0; i < 10; i++) {
                         producer.send(new ProducerRecord<String, String>(topic, keyStr + "_" + i, valueStr + "_" + i));
                     }
-                    producer.commitTransaction();
+//                    producer.commitTransaction();
+                    System.out.println("commitTransaction");
+
 
                 } catch (ProducerFencedException | OutOfOrderSequenceException | AuthorizationException e) {
                     // We can't recover from these exceptions, so our only option is to close the producer and exit.
                     producer.close();
                 } catch (KafkaException e) {
                     // For all other exceptions, just abort the transaction and try again.
-                    producer.abortTransaction();
+//                    producer.abortTransaction();
                 }
                 messageNo++;
                 if (messageNo == 30) {
                     break;
                 }
             }
-            sleep(1000);
+            sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }finally {
             producer.close();
+            System.out.println("producer.close()");
+
         }
     }
 }

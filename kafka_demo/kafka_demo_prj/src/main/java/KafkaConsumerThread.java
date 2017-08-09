@@ -32,7 +32,7 @@ public class KafkaConsumerThread extends Thread {
     @Override
     public void run() {
         try {
-            consumer.subscribe(Arrays.asList("foo", "bar"));
+            consumer.subscribe(Arrays.asList(KafkaProperties.topic));
             while (true) {
                 ConsumerRecords<String, String> records = consumer.poll(100);
                 for (ConsumerRecord<String, String> record : records)

@@ -1,5 +1,5 @@
 /**
- * Demo启动入口函数
+ * Demo 生产者 消费者 启动入口函数
  *
  * Created by cliffyan on 2017/8/3.
  */
