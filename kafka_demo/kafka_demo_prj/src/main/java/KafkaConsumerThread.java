@@ -26,12 +26,12 @@ public class KafkaConsumerThread extends Thread {
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         consumer = new KafkaConsumer<String, String>(props);
-
     }
 
     @Override
     public void run() {
         try {
+            //通过list 可以订阅多个topic(即topic集合)
             consumer.subscribe(Arrays.asList(KafkaProperties.topic));
             while (true) {
                 ConsumerRecords<String, String> records = consumer.poll(100);
@@ -43,7 +43,5 @@ public class KafkaConsumerThread extends Thread {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 }

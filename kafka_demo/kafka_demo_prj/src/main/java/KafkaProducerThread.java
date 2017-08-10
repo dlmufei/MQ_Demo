@@ -50,7 +50,6 @@ public class KafkaProducerThread extends Thread {
 //                    producer.commitTransaction();
                     System.out.println("commitTransaction");
 
-
                 } catch (ProducerFencedException | OutOfOrderSequenceException | AuthorizationException e) {
                     // We can't recover from these exceptions, so our only option is to close the producer and exit.
                     producer.close();
@@ -66,10 +65,9 @@ public class KafkaProducerThread extends Thread {
             sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             producer.close();
             System.out.println("producer.close()");
-
         }
     }
 }
