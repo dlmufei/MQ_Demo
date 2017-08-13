@@ -6,10 +6,10 @@
 public class KafkaConsumerProducerMain {
 
     public static void main(String[] args){
-        KafkaProducerThread producerThread = new KafkaProducerThread(KafkaProperties.topic);
+        KafkaProducerThread producerThread = new KafkaProducerThread(KafkaProperties.topic_test);
         producerThread.start();
 
-        KafkaConsumerThread consumerThread = new KafkaConsumerThread(KafkaProperties.topic);
+        KafkaConsumerThread consumerThread = new KafkaConsumerThread(KafkaProperties.topic_test);
         consumerThread.start();
     }
 }

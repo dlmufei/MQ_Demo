@@ -32,7 +32,7 @@ public class KafkaConsumerThread extends Thread {
     public void run() {
         try {
             //通过list 可以订阅多个topic(即topic集合)
-            consumer.subscribe(Arrays.asList(KafkaProperties.topic));
+            consumer.subscribe(Arrays.asList(KafkaProperties.topic_test));
             while (true) {
                 ConsumerRecords<String, String> records = consumer.poll(100);
                 for (ConsumerRecord<String, String> record : records)
