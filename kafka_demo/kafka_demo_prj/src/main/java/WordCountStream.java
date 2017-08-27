@@ -20,6 +20,7 @@ import java.util.concurrent.CountDownLatch;
  * 统计一段话中的各个word的数目
  * 教程 http://kafka.apache.org/0110/documentation/streams/quickstart
  * 代码 https://github.com/apache/kafka/blob/0.11.0/streams/examples/src/main/java/org/apache/kafka/streams/examples/wordcount/WordCountDemo.java
+ * 参考 https://mp.weixin.qq.com/s/lmt7tm5AF_6DwSA--3bXRA
  * <p>
  * Created by cliffyan on 2017/8/13.
  */

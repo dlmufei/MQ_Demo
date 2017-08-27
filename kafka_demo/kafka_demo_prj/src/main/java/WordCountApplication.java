@@ -11,8 +11,8 @@ import java.util.Arrays;
 import java.util.Properties;
 
 /**
- *
- *
+ * doc http://kafka.apache.org/documentation/streams/
+ * <p>
  * Created by cliffyan on 2017/8/13.
  */
 public class WordCountApplication {
